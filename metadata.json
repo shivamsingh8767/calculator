@@ -1,0 +1,6 @@
+{
+  "name": "MATH/OS",
+  "description": "A simple space for calculations, scientific functions and engineering mathematics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

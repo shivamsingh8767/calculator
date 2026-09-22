@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MATH/OS · Mathematical Utility</title>
+    <meta name="description" content="A simple space for calculations, scientific functions and engineering mathematics." />
+    <meta property="og:title" content="MATH/OS · Mathematical Utility" />
+    <meta property="og:description" content="A simple space for calculations, scientific functions and engineering mathematics." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Top Bar Navigation (Top Bar Contract: Brand | Navigation | Utility) -->
+    <header class="site-header" role="banner">
+      <div class="app-container">
+        <div class="header-inner">
+          <!-- Zone 1: Brand Wordmark -->
+          <a href="#home" id="brandLogo" class="brand-link" aria-label="MATH/OS Home">
+            <span>MATH/OS</span>
+            <span class="brand-dot" aria-hidden="true"></span>
+          </a>
+
+          <!-- Zone 2: Primary Navigation -->
+          <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+            <button type="button" class="nav-item is-active" data-view-target="home" aria-current="page">
+              OVERVIEW
+            </button>
+            <button type="button" class="nav-item" data-view-target="normal">
+              NORMAL
+            </button>
+            <button type="button" class="nav-item" data-view-target="calculator">
+              CALCULATOR
+            </button>
+            <button type="button" class="nav-item" data-view-target="formulas">
+              FORMULAS
+            </button>
+          </nav>
+
+          <!-- Zone 3: Header Actions / Utility Status -->
+          <div class="header-actions">
+            <button type="button" class="history-toggle-btn" id="headerHistoryBtn" aria-label="Open calculation history">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>HISTORY</span>
+              <span class="history-toggle-badge" id="historyCounterBadge">0</span>
+            </button>
+            <div class="system-status" id="systemStatusBadge" title="Backend API status">
+              <span class="status-beacon" id="systemStatusBeacon" aria-hidden="true"></span>
+              <span id="systemStatusText">API CONNECTING</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent" role="main">
+      <div class="app-container">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: HOME / LANDING STATE -->
+        <!-- ========================================== -->
+        <section class="view-section is-active" data-view-section="home" aria-labelledby="heroTitle">
+          <!-- Hero Banner Section -->
+          <header class="hero-section">
+            <div class="hero-label">
+              <span aria-hidden="true">◆</span>
+              <span>MATH UTILITY</span>
+              <span aria-hidden="true">◆</span>
+            </div>
+            <h1 id="heroTitle" class="hero-title">
+              MATH<span class="title-accent">/</span>OS
+            </h1>
+            <p class="hero-subtitle">
+              A simple space for calculations, scientific functions and engineering mathematics.
+            </p>
+          </header>
+
+          <!-- Three Core Visual Feature Cards -->
+          <div class="feature-grid">
+            <!-- 1. NORMAL Feature Card -->
+            <article class="feature-card" data-view-target="normal" tabindex="0" role="button" aria-label="Open Normal Calculator">
+              <div class="card-header">
+                <span class="card-tag">01 · ARITHMETIC</span>
+                <h2 class="card-title">
+                  NORMAL
+                  <svg class="card-title-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </h2>
+                <p class="card-description">
+                  Basic arithmetic calculator for rapid computation, percentages and sequential expressions.
+                </p>
+              </div>
+
+              <!-- Visual Keypad Mockup Preview -->
+              <div class="card-visual-preview" aria-hidden="true">
+                <div class="calc-preview-grid">
+                  <div class="mini-key">C</div>
+                  <div class="mini-key">±</div>
+                  <div class="mini-key">%</div>
+                  <div class="mini-key is-operator">÷</div>
+                  <div class="mini-key">7</div>
+                  <div class="mini-key">8</div>
+                  <div class="mini-key">9</div>
+                  <div class="mini-key is-operator">×</div>
+                  <div class="mini-key">4</div>
+                  <div class="mini-key">5</div>
+                  <div class="mini-key">6</div>
+                  <div class="mini-key is-operator">−</div>
+                  <div class="mini-key">1</div>
+                  <div class="mini-key">2</div>
+                  <div class="mini-key">3</div>
+                  <div class="mini-key is-operator">+</div>
+                  <div class="mini-key">0</div>
+                  <div class="mini-key">.</div>
+                  <div class="mini-key" style="grid-column: span 2;">
+                    <div class="mini-key is-equal" style="width: 100%; height: 100%; border-radius: 6px;">=</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-footer-action">
+                <span class="action-link">Open Normal Mode</span>
+                <span class="shortcut-badge">KEY 1</span>
+              </div>
+            </article>
+
+            <!-- 2. CALCULATOR Feature Card -->
+            <article class="feature-card" data-view-target="calculator" tabindex="0" role="button" aria-label="Open Scientific Calculator">
+              <div class="card-header">
+                <span class="card-tag">02 · ADVANCED</span>
+                <h2 class="card-title">
+                  CALCULATOR
+                  <svg class="card-title-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </h2>
+                <p class="card-description">
+                  Scientific calculator for advanced calculations, trigonometry, logarithms, powers and radicals.
+                </p>
+              </div>
+
+              <!-- Visual Scientific Function Mockup Preview -->
+              <div class="card-visual-preview" aria-hidden="true">
+                <div class="sci-preview-matrix">
+                  <div class="sci-expression-row">
+                    <span>sin(π/4) + ln(e²)</span>
+                    <span style="color: var(--off-white); font-weight: 600;">2.7071</span>
+                  </div>
+                  <div class="sci-keys-row">
+                    <div class="sci-pill">sin</div>
+                    <div class="sci-pill">cos</div>
+                    <div class="sci-pill">tan</div>
+                    <div class="sci-pill">ln</div>
+                  </div>
+                  <div class="sci-keys-row">
+                    <div class="sci-pill">xʸ</div>
+                    <div class="sci-pill">√x</div>
+                    <div class="sci-pill">π</div>
+                    <div class="sci-pill">e</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-footer-action">
+                <span class="action-link">Open Scientific Mode</span>
+                <span class="shortcut-badge">KEY 2</span>
+              </div>
+            </article>
+
+            <!-- 3. FORMULAS Feature Card -->
+            <article class="feature-card" data-view-target="formulas" tabindex="0" role="button" aria-label="Open Formula Library">
+              <div class="card-header">
+                <span class="card-tag">03 · KNOWLEDGE</span>
+                <h2 class="card-title">
+                  FORMULAS
+                  <svg class="card-title-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </h2>
+                <p class="card-description">
+                  Mathematics and engineering formula library covering calculus, linear algebra, transforms and physics.
+                </p>
+              </div>
+
+              <!-- Visual Formula Stack Mockup Preview -->
+              <div class="card-visual-preview" aria-hidden="true">
+                <div class="formula-preview-stack">
+                  <div class="formula-tag-row">
+                    <span class="formula-math">e^(iπ) + 1 = 0</span>
+                    <span class="formula-label">Euler's Identity</span>
+                  </div>
+                  <div class="formula-tag-row">
+                    <span class="formula-math">∇ · E = ρ / ε₀</span>
+                    <span class="formula-label">Gauss's Law</span>
+                  </div>
+                  <div class="formula-tag-row">
+                    <span class="formula-math">∫ u dv = uv - ∫ v du</span>
+                    <span class="formula-label">Integration</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-footer-action">
+                <span class="action-link">Explore Formulas</span>
+                <span class="shortcut-badge">KEY 3</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Editorial Architecture & Specifications Section -->
+          <section class="specs-section" aria-label="System Specifications">
+            <div class="specs-grid">
+              <div class="spec-item">
+                <span class="spec-label">PRECISION</span>
+                <span class="spec-value">64-Bit Float</span>
+                <p class="spec-desc">High-precision arithmetic calculation engine structure.</p>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">LIBRARIES</span>
+                <span class="spec-value">12 Domains</span>
+                <p class="spec-desc">Engineering and higher mathematics formula indexing.</p>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">DESIGN</span>
+                <span class="spec-value">Editorial Glass</span>
+                <p class="spec-desc">Lime-accented restrained dark forest UI system.</p>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">PERFORMANCE</span>
+                <span class="spec-value">Zero Bloat</span>
+                <p class="spec-desc">Pure vanilla HTML5, CSS3, and modern modular ES6+.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: NORMAL CALCULATOR -->
+        <!-- ========================================== -->
+        <section class="view-section" data-view-section="normal" aria-labelledby="normalTitle">
+          <div class="detail-view-header">
+            <div class="detail-view-titles">
+              <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+                <span>MATH/OS</span>
+                <span aria-hidden="true">/</span>
+                <span class="active-crumb">NORMAL</span>
+              </nav>
+              <h2 id="normalTitle" class="detail-title">NORMAL CALCULATOR</h2>
+              <p class="detail-subtitle">
+                Clean arithmetic interface designed for standard numerical calculation and sequential operations.
+              </p>
+            </div>
+            <button type="button" class="btn-secondary" data-view-target="home">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              <span>Back to Overview</span>
+            </button>
+          </div>
+
+          <!-- Normal Calculator Shell -->
+          <div class="calc-shell-container">
+            <!-- Numerical Display -->
+            <div class="calc-display-panel" aria-live="polite">
+              <div class="calc-display-history" id="normalHistory"></div>
+              <div class="calc-display-value" id="normalDisplay">0</div>
+            </div>
+
+            <!-- Keypad Matrix (4 Columns) -->
+            <div class="calc-keypad-grid" id="normalKeypad">
+              <button type="button" class="calc-btn btn-action" data-norm-action="clear" title="Clear (Escape)">AC</button>
+              <button type="button" class="calc-btn btn-action" data-norm-action="delete" title="Delete (Backspace)">DEL</button>
+              <button type="button" class="calc-btn btn-action" data-norm-action="percent" title="Percent (%)">%</button>
+              <button type="button" class="calc-btn btn-op" data-norm-op="/" title="Divide (/)">÷</button>
+
+              <button type="button" class="calc-btn" data-norm-num="7">7</button>
+              <button type="button" class="calc-btn" data-norm-num="8">8</button>
+              <button type="button" class="calc-btn" data-norm-num="9">9</button>
+              <button type="button" class="calc-btn btn-op" data-norm-op="*" title="Multiply (*)">×</button>
+
+              <button type="button" class="calc-btn" data-norm-num="4">4</button>
+              <button type="button" class="calc-btn" data-norm-num="5">5</button>
+              <button type="button" class="calc-btn" data-norm-num="6">6</button>
+              <button type="button" class="calc-btn btn-op" data-norm-op="-" title="Subtract (-)">−</button>
+
+              <button type="button" class="calc-btn" data-norm-num="1">1</button>
+              <button type="button" class="calc-btn" data-norm-num="2">2</button>
+              <button type="button" class="calc-btn" data-norm-num="3">3</button>
+              <button type="button" class="calc-btn btn-op" data-norm-op="+" title="Add (+)">+</button>
+
+              <button type="button" class="calc-btn btn-action" data-norm-action="sign" title="Negate (±)">±</button>
+              <button type="button" class="calc-btn" data-norm-num="0">0</button>
+              <button type="button" class="calc-btn" data-norm-action="decimal" title="Decimal (.)">.</button>
+              <button type="button" class="calc-btn btn-equal" data-norm-action="equals" title="Calculate (Enter)">=</button>
+            </div>
+
+            <!-- Foundation Phase Notice -->
+            <div class="foundation-notice">
+              <p class="notice-text">
+                <strong>Engine Active:</strong> Continuous calculation with standard operator precedence.
+              </p>
+              <span class="notice-badge">PRECISION READY</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: SCIENTIFIC CALCULATOR -->
+        <!-- ========================================== -->
+        <section class="view-section" data-view-section="calculator" aria-labelledby="calcTitle">
+          <div class="detail-view-header">
+            <div class="detail-view-titles">
+              <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+                <span>MATH/OS</span>
+                <span aria-hidden="true">/</span>
+                <span class="active-crumb">CALCULATOR</span>
+              </nav>
+              <h2 id="calcTitle" class="detail-title">SCIENTIFIC CALCULATOR</h2>
+              <p class="detail-subtitle">
+                Advanced mathematical computation console featuring trigonometry, logarithms, exponentials, and physical constants.
+              </p>
+            </div>
+            <button type="button" class="btn-secondary" data-view-target="home">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              <span>Back to Overview</span>
+            </button>
+          </div>
+
+          <!-- Scientific Calculator Shell -->
+          <div class="scientific-shell-container">
+            <!-- Multi-tier Display -->
+            <div class="calc-display-panel" aria-live="polite">
+              <div class="calc-display-history" id="sciHistory"></div>
+              <div class="calc-display-value" id="sciDisplay">0</div>
+            </div>
+
+            <!-- Scientific Keypad Matrix (6 Columns x 6 Rows) -->
+            <div class="sci-keypad-grid" id="sciKeypad">
+              <!-- Row 1: Mode & Control -->
+              <button type="button" class="calc-btn btn-sci" id="btnRadMode" data-sci-action="mode-rad" title="Radians mode">RAD</button>
+              <button type="button" class="calc-btn btn-sci is-active-mode" id="btnDegMode" data-sci-action="mode-deg" title="Degrees mode">DEG</button>
+              <button type="button" class="calc-btn btn-sci" id="btnInvToggle" data-sci-action="toggle-inv" title="Inverse functions">INV</button>
+              <button type="button" class="calc-btn btn-action" data-sci-action="clear" title="Clear (Escape)">AC</button>
+              <button type="button" class="calc-btn btn-action" data-sci-action="delete" title="Delete (Backspace)">DEL</button>
+              <button type="button" class="calc-btn btn-op" data-sci-op="/" title="Divide (/)">÷</button>
+
+              <!-- Row 2: Trig & High Numbers -->
+              <button type="button" class="calc-btn btn-sci" id="btnSin" data-sci-fn="sin" title="Sine">sin</button>
+              <button type="button" class="calc-btn btn-sci" id="btnCos" data-sci-fn="cos" title="Cosine">cos</button>
+              <button type="button" class="calc-btn" data-sci-num="7">7</button>
+              <button type="button" class="calc-btn" data-sci-num="8">8</button>
+              <button type="button" class="calc-btn" data-sci-num="9">9</button>
+              <button type="button" class="calc-btn btn-op" data-sci-op="*" title="Multiply (*)">×</button>
+
+              <!-- Row 3: Tan, Log & Mid Numbers -->
+              <button type="button" class="calc-btn btn-sci" id="btnTan" data-sci-fn="tan" title="Tangent">tan</button>
+              <button type="button" class="calc-btn btn-sci" id="btnLn" data-sci-fn="ln" title="Natural Log (ln)">ln</button>
+              <button type="button" class="calc-btn" data-sci-num="4">4</button>
+              <button type="button" class="calc-btn" data-sci-num="5">5</button>
+              <button type="button" class="calc-btn" data-sci-num="6">6</button>
+              <button type="button" class="calc-btn btn-op" data-sci-op="-" title="Subtract (-)">−</button>
+
+              <!-- Row 4: Log10, Root & Low Numbers -->
+              <button type="button" class="calc-btn btn-sci" id="btnLog" data-sci-fn="log" title="Logarithm base 10">log</button>
+              <button type="button" class="calc-btn btn-sci" id="btnSqrt" data-sci-fn="sqrt" title="Square root">√x</button>
+              <button type="button" class="calc-btn" data-sci-num="1">1</button>
+              <button type="button" class="calc-btn" data-sci-num="2">2</button>
+              <button type="button" class="calc-btn" data-sci-num="3">3</button>
+              <button type="button" class="calc-btn btn-op" data-sci-op="+" title="Add (+)">+</button>
+
+              <!-- Row 5: Powers, Zero & Equals -->
+              <button type="button" class="calc-btn btn-sci" data-sci-op="^" title="Power (x^y)">xʸ</button>
+              <button type="button" class="calc-btn btn-sci" data-sci-fn="sqr" title="Square (x²)">x²</button>
+              <button type="button" class="calc-btn btn-sci" data-sci-action="open-paren" title="Open bracket">(</button>
+              <button type="button" class="calc-btn" data-sci-num="0">0</button>
+              <button type="button" class="calc-btn btn-sci" data-sci-action="close-paren" title="Close bracket">)</button>
+              <button type="button" class="calc-btn btn-equal" data-sci-action="equals" title="Calculate (Enter)">=</button>
+
+              <!-- Row 6: Reciprocal, Factorial, Constants & Modulo -->
+              <button type="button" class="calc-btn btn-sci" data-sci-fn="recip" title="Reciprocal (1/x)">1/x</button>
+              <button type="button" class="calc-btn btn-sci" data-sci-action="fact" title="Factorial (x!)">x!</button>
+              <button type="button" class="calc-btn btn-sci" data-sci-const="pi" title="Pi (3.14159...)">π</button>
+              <button type="button" class="calc-btn btn-sci" data-sci-const="e" title="Euler's e (2.71828...)">e</button>
+              <button type="button" class="calc-btn btn-sci" data-sci-action="exp" title="Scientific Exponential (EXP)">EXP</button>
+              <button type="button" class="calc-btn btn-action" data-sci-action="decimal" title="Decimal (.)">.</button>
+            </div>
+
+            <!-- Foundation Phase Notice -->
+            <div class="foundation-notice">
+              <p class="notice-text">
+                <strong>Scientific Console Active:</strong> Multi-mode evaluation engine with angle context.
+              </p>
+              <span class="notice-badge" id="activeModeBadge">DEG MODE</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: FORMULAS LIBRARY -->
+        <!-- ========================================== -->
+        <section class="view-section" data-view-section="formulas" aria-labelledby="formulaTitle">
+          <div class="detail-view-header">
+            <div class="detail-view-titles">
+              <nav class="detail-breadcrumb" id="formulaBreadcrumbs" aria-label="Formula Breadcrumb">
+                <span class="breadcrumb-link" data-view-target="home">MATH/OS</span>
+                <span aria-hidden="true">/</span>
+                <span class="active-crumb" id="formulaRootCrumb">FORMULAS</span>
+              </nav>
+              <h2 id="formulaTitle" class="detail-title">FORMULA LIBRARY</h2>
+              <p class="detail-subtitle" id="formulaSubtitle">
+                Structured reference catalog across 14 mathematical and engineering disciplines.
+              </p>
+            </div>
+            <button type="button" class="btn-secondary" id="formulaHeaderActionBtn" data-view-target="home">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              <span id="formulaHeaderBtnText">Back to Overview</span>
+            </button>
+          </div>
+
+          <!-- Interactive Search & Topic Filter Bar -->
+          <div class="formula-controls-bar">
+            <!-- Search Bar -->
+            <div class="formula-search-wrapper">
+              <svg class="formula-search-icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input
+                type="text"
+                id="formulaSearchInput"
+                class="formula-search-input"
+                placeholder="Search formulas, topics, keywords (e.g., sin, derivative, laplace, quadratic, matrix)..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button type="button" id="formulaSearchClear" class="formula-search-clear" aria-label="Clear search">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Topic Filter Pills -->
+            <div class="formula-filters-scroll" id="formulaFilterChips" role="tablist" aria-label="Formula Categories">
+              <!-- Dynamically populated filter chips -->
+            </div>
+          </div>
+
+          <!-- Status & Results Count Bar -->
+          <div class="formula-status-bar" id="formulaStatusBar">
+            <div class="formula-results-count" id="formulaResultsCount">
+              Loading formula library...
+            </div>
+            <div class="formula-view-toggle" id="formulaViewToggleArea">
+              <!-- Back button or subtopic quick toggle -->
+            </div>
+          </div>
+
+          <!-- Dynamic Formula Content Canvas -->
+          <div id="formulaContentArea">
+            <!-- Dynamically rendered: Topics Grid / Subtopic Formulas Grid / Empty State -->
+          </div>
+
+          <!-- Foundation Phase Notice -->
+          <div class="foundation-notice">
+            <p class="notice-text">
+              <strong>Formula Engine Active:</strong> Structured client data store with instant multi-attribute search and clipboard copying.
+            </p>
+            <span class="notice-badge" id="formulaCountBadge">14 DISCIPLINES</span>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="app-container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <span class="footer-logo">MATH/OS</span>
+            <span class="footer-desc">· Mathematical Utility System</span>
+          </div>
+
+          <!-- Quick Keyboard Navigation Shortcuts Guide -->
+          <div class="footer-shortcuts" aria-label="Keyboard Shortcuts">
+            <span class="shortcut-item"><kbd class="shortcut-key">1</kbd> Normal</span>
+            <span class="shortcut-item"><kbd class="shortcut-key">2</kbd> Scientific</span>
+            <span class="shortcut-item"><kbd class="shortcut-key">3</kbd> Formulas</span>
+            <span class="shortcut-item"><kbd class="shortcut-key">0</kbd> Overview</span>
+          </div>
+
+          <div class="footer-copy">
+            <span>MATH/OS · Frontend Design System</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- History Drawer & Overlay -->
+    <div class="history-drawer-overlay" id="historyOverlay" aria-hidden="true"></div>
+    <aside class="history-drawer" id="historyDrawer" aria-label="Calculation History" aria-hidden="true">
+      <div class="history-header">
+        <div class="history-header-left">
+          <h3 class="history-title">CALCULATION HISTORY</h3>
+          <span class="history-count-badge" id="historyDrawerCount">0</span>
+        </div>
+        <div class="history-header-actions">
+          <button type="button" class="btn-history-clear" id="historyClearBtn" title="Clear all history">CLEAR ALL</button>
+          <button type="button" class="btn-history-close" id="historyCloseBtn" aria-label="Close history panel">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="history-body" id="historyListContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </aside>
+
+    <!-- Vanilla JavaScript Core Engine -->
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>
